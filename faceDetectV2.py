@@ -100,10 +100,10 @@ while True:
                 frame = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
                 frame = pygame.surfarray.make_surface(frame)
                 screen.blit(frame, (0, 30))
-        else:
-            message = font.render('Please press connect to start camera', True, white)  # change color to white
-            message_rect = message.get_rect(center=(screen.get_width() // 2, screen.get_height() // 2))
-            screen.blit(message, message_rect)
+    else:
+        message = font.render('Please press connect to start camera', True, black)  # change color to white
+        message_rect = message.get_rect(center=(screen.get_width() // 2, screen.get_height() // 2))
+        screen.blit(message, message_rect)
 
 
     pygame.display.flip()
