@@ -13,11 +13,7 @@ clock = pygame.time.Clock()
 white = (255, 255, 255)
 black = (0, 0, 0)
 
-menu_items = [
-    {'label': 'Connect', 'action': lambda: start_camera(), 'rect': pygame.Rect(0, 0, 0, 0)},
-    {'label': 'About', 'action': lambda: print('Designed by Karthik'), 'rect': pygame.Rect(0, 0, 0, 0)},
-    {'label': 'Exit', 'action': lambda: exit(0), 'rect': pygame.Rect(0, 0, 0, 0)},
-]
+menu_items = [    {'label': 'Connect', 'action': lambda: start_camera(), 'rect': pygame.Rect(0, 0, 0, 0)},    {'label': 'About', 'action': lambda: print('Designed by Karthik'), 'rect': pygame.Rect(0, 0, 0, 0)},    {'label': 'Exit', 'action': lambda: exit(0), 'rect': pygame.Rect(0, 0, 0, 0)},]
 
 menu_bar_rect = pygame.Rect(0, 0, 640, 30)
 
@@ -65,6 +61,10 @@ while True:
             frame = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
             frame = pygame.surfarray.make_surface(frame)
             screen.blit(frame, (0, 30))
+    else:
+        text = font.render('Please press "Connect" to start the camera', True, black)
+        text_rect = text.get_rect(center=screen.get_rect().center)
+        screen.blit(text, text_rect)
 
     pygame.display.flip()
     clock.tick(60)
